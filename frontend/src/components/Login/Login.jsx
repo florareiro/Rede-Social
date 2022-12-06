@@ -48,8 +48,8 @@ const Login = ({ setIsRegistering }) => {
       <button type="submit">Login</button>
       <p>
         Já tem uma conta? <br />
-        <span onClick={() => setIsRegistering(true)}>Cadastrar</span>ou{" "}
-        <span onClick={guestHandler}>Continuar como convidado</span>
+        <span onClick={() => setIsRegistering(true)}>Cadastrar </span>ou{" "}
+        <span onClick={guestHandler}> Continuar como convidado</span>
       </p>
     </form>
   );
