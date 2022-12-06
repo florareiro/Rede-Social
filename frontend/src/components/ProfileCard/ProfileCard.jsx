@@ -38,9 +38,7 @@ const ProfileCard = ({ id, isOwnProfile }) => {
 
   const sendMessage = async () => {
     if (isGuest)
-      return dispatch(
-        showModal({ msg: "You must be logged in to do this action!!" })
-      );
+      return dispatch(showModal({ msg: "Você precisa estar logado!!" }));
     dispatch(setIsLoading(true));
     dispatch(createChat({ customFetch, id })).then(() => {
       if (window.innerWidth < 801) navigate("/chat/messenger");
@@ -85,8 +83,8 @@ const ProfileCard = ({ id, isOwnProfile }) => {
             </div>
           )}
         </div>
-        <h1>{name || "User"}</h1>
-        <h2>{about || "About"}</h2>
+        <h1>{name || "Userário"}</h1>
+        <h2>{about || "Sobre"}</h2>
       </header>
       <article>
         <div className="profilecard__info">

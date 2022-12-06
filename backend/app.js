@@ -1,4 +1,4 @@
-//dependencies
+//dependencias
 
 require("dotenv").config();
 require("express-async-errors");
@@ -7,14 +7,11 @@ const fileUpload = require("express-fileupload");
 const express = require("express");
 const cloudinary = require("cloudinary").v2;
 const connectDB = require("./db/connect");
-
-//security dependencies
-
 const helmet = require("helmet");
 const cors = require("cors");
 const xss = require("xss-clean");
 
-//app initialization
+//app init
 
 const app = express();
 const server = require("http").createServer(app);
@@ -22,7 +19,7 @@ const { Server } = require("socket.io");
 const io = new Server(server, { cors: { origin: clientURL } });
 const PORT = process.env.PORT || 5000;
 
-//cloudinary configuration
+//cloudinary
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -36,7 +33,7 @@ const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
 const postRouter = require("./routes/post");
 
-//middle wares
+//middlewares
 
 const errorHandlerMiddleware = require("./middleware/error-handler");
 const authorizationMiddleware = require("./middleware/authorization");

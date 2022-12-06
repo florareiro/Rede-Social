@@ -43,7 +43,7 @@ function App() {
     else dispatch(login({ id: "guest", isGuest: true }));
   }, [dispatch]);
 
-  //get users and chats and init socket
+  //get users e init socket
   useEffect(() => {
     if (id) {
       const query = `id=${id}`;
@@ -53,7 +53,7 @@ function App() {
     }
   }, [id, customFetch, dispatch, isGuest]);
 
-  //socket events
+  //socket eventos
   useEffect(() => {
     if (socket) {
       socket.on("usersOnline", (users) => dispatch(addOnline(users)));

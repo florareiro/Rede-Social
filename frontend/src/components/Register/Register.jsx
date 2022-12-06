@@ -32,7 +32,7 @@ const Register = ({ setIsRegistering }) => {
         <input
           type="email"
           id="email"
-          placeholder="johndoe@example.com"
+          placeholder="fulano@email.com"
           value={form.email}
           required
           onChange={(e) => updateForm("email", e)}
@@ -46,7 +46,7 @@ const Register = ({ setIsRegistering }) => {
       <input
         type="text"
         id="name"
-        placeholder="john doe"
+        placeholder="Fulano"
         value={form.name}
         required
         onChange={(e) => updateForm("name", e)}
@@ -63,7 +63,7 @@ const Register = ({ setIsRegistering }) => {
       <input
         type="password"
         id="password"
-        placeholder="Top secret"
+        placeholder=""
         required
         value={form.password}
         onChange={(e) => updateForm("password", e)}

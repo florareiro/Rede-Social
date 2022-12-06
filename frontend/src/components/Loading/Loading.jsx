@@ -6,7 +6,7 @@ const Loading = ({ show }) => {
   const [quote, setQuote] = useState("");
   const fetchQuote = async () => {
     const { data } = await axios.get(
-      "https://uselessfacts.jsph.pl/random.json?language=en"
+      "https://uselessfacts.jsph.pl/random.json?language=pt-br"
     );
     setQuote(data.text);
   };
