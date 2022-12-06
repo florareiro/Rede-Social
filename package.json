@@ -1,0 +1,20 @@
+{
+  "name": "minharedesocial",
+  "version": "1.0.0",
+  "description": "no terminal instalar dependencias e iniciar servidor:\r ### `cd backend`\r ### `npm install`\r ### `npm start`",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "react-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florareiro/Rede-Social.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/florareiro/Rede-Social/issues"
+  },
+  "homepage": "https://github.com/florareiro/Rede-Social#readme"
+}
