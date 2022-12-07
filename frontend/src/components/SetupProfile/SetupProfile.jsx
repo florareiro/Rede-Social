@@ -41,7 +41,7 @@ const SetupProfile = ({ close, user }) => {
       dispatch(getUsers({ customFetch }));
       close();
       dispatch(update({ name: data.user.name, id: data.user._id }));
-      dispatch(showModal({ msg: "Success" }));
+      dispatch(showModal({ msg: "Atualizado!" }));
     }
   };
 

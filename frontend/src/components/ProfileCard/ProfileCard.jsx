@@ -12,7 +12,6 @@ import ImageUpload from "../ImageUpload/ImageUpload";
 import useFetch from "../../hooks/useFetch";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createChat } from "../../features/messageSlice";
 import Backdrop from "../Backdrop/Backdrop";
 import { setIsLoading, showModal } from "../../features/modalSlice";
 import "./profilecard.css";
@@ -35,19 +34,6 @@ const ProfileCard = ({ id, isOwnProfile }) => {
   let { name, email, about, dob, location, createdAt, profileImage } = user;
   createdAt = `Joined on ${getDateString(createdAt)}`;
   dob = getDateString(dob);
-
-  const sendMessage = async () => {
-    if (isGuest)
-      return dispatch(
-        showModal({ msg: "You must be logged in to do this action!!" })
-      );
-    dispatch(setIsLoading(true));
-    dispatch(createChat({ customFetch, id })).then(() => {
-      if (window.innerWidth < 801) navigate("/chat/messenger");
-      else navigate("/chat");
-      dispatch(setIsLoading(false));
-    });
-  };
 
   const hideUploading = () => {
     setIsUploading(false);
@@ -113,7 +99,6 @@ const ProfileCard = ({ id, isOwnProfile }) => {
         </div>
       ) : (
         <div className="btn-group">
-          <button onClick={sendMessage}>Mensagem</button>
           <button disabled>Adicionar Amigo</button>
         </div>
       )}
