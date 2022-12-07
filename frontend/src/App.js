@@ -8,13 +8,7 @@ import SERVER_URI from "./serverUri";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "./features/userSlice.js";
 import { setSocket } from "./features/socketSlice";
-import { showModal } from "./features/modalSlice.js";
-import {
-  addMessages,
-  clearMessage,
-  deleteChat,
-  updateChats,
-} from "./features/messageSlice.js";
+
 import { addOnline, getUsers } from "./features/usersSlice.js";
 import { setPosts } from "./features/postSlice.js";
 //components
@@ -33,7 +27,6 @@ function App() {
     user: { id, isGuest },
     modal: { isLoading },
     socket: { socket },
-    message: { to, conversationID },
   } = useSelector((state) => state);
 
   //login
@@ -57,28 +50,8 @@ function App() {
   useEffect(() => {
     if (socket) {
       socket.on("usersOnline", (users) => dispatch(addOnline(users)));
-      socket.on("delete chat", (id) => dispatch(deleteChat(id)));
     }
   }, [socket, dispatch]);
-
-  useEffect(() => {
-    if (socket) {
-      socket
-        .off("receive message")
-        .on("receive message", (message, senderID) => {
-          dispatch(showModal({ msg: "1 new message" }));
-          dispatch(
-            updateChats({ lastMessage: message, id: senderID, customFetch })
-          );
-          senderID === to && dispatch(addMessages({ text: message }));
-        });
-      socket
-        .off("clear chat")
-        .on("clear chat", (id) =>
-          dispatch(clearMessage({ conversationID: id }))
-        );
-    }
-  }, [customFetch, dispatch, socket, to, conversationID]);
 
   return (
     <div className={"app " + theme}>
