@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Gallery from "../../components/Gallery/Gallery";
 import Online from "../../components/Online/Online";
 import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import { useParams } from "react-router";
@@ -47,7 +46,6 @@ const Profile = () => {
     <section className="profile">
       <article className="profile__left">
         <ProfileCard id={id} isOwnProfile={isOwnProfile} />
-        <Gallery />
       </article>
       <InfinityScroll getNextPage={getNextPage}>
         <article className="profile__center">
